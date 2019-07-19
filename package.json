@@ -1,5 +1,6 @@
 {
   "name": "recipe-app",
+  "homepage": "http://konstantin0s.github.io/recipe-Api",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
