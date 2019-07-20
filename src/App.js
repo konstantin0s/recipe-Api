@@ -13,9 +13,17 @@ const App = () => {
   }, [search]);
 
   const getRecipes = async () => {
-    const result = await fetch(`https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}`)
-    const data = await result.json();
+    const response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+
+    });
+    const data = await response.json();
+    // console.log(data.hits);
     setRecipes(data.hits);
+
   }
 
   const updateSearch = (e) => {
